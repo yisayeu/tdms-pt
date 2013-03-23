@@ -1,5 +1,8 @@
 {    
     "require": {
-        "zendframework/zendframework1": "1.*"
-    }
+        "zendframework/zendframework1": "1.*",
+        "guilhermeblanco/zendframework1-doctrine2": "master-dev"
+    },
+    
+    "minimum-stability": "dev"
 }

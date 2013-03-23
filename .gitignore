@@ -2,3 +2,5 @@
 .buildpath
 .settings
 vendor
+access.log
+error.log
