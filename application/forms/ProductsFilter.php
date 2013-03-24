@@ -19,8 +19,6 @@ class Application_Form_ProductsFilter extends Zend_Form
 			'required' => false,
 			'multiOptions' =>  array('' => 'All') + $this->categories,
 			'validators' => array(array('inArray', false, array('haystack' => array_keys($this->categories))))
-		));
-
-		$this->addElement('submit', 'submit');
+		));		
 	}
 }

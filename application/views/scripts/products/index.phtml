@@ -1,26 +1,19 @@
-<div class="btn-group">
-	<a class="btn" href="<?php echo $this->url(array('controller' => 'products', 'action' => 'create')); ?>">Create a Product</a>
+<div class="navbar">
+	<div class="navbar-inner">    
+		<a class="brand" href="<?php echo $this->url(array('controller' => 'products', 'action' => 'index')); ?>">Products</a>
+		<a class="btn" id="products-create" href="<?php echo $this->url(array('controller' => 'products', 'action' => 'create')); ?>">Add a Product</a>
+		<a class="btn" id="products-clear" href="<?php echo $this->url(array('controller' => 'products', 'action' => 'clear')); ?>">Clear The List</a>
+	</div>
 </div>
-
-<?php /* echo $this->form; */ ?>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Category</th>
-    </tr>
-  </thead>
-  <tbody>
-
-  	<?php foreach ($this->products as $product) { ?>
-  	<tr>
-      <td><?php echo $product->getId(); ?></td>
-      <td><?php echo $product->getName(); ?></td>
-      <td><?php echo $product->getCategory()->getName(); ?></td>
-    </tr>
-    <?php } ?>
-
-  </tbody>
-</table>		
+	
+<div id="products-grid">
+	<form class="form-inline">
+		<div class="filters">
+			<?php echo $this->form->category; ?>
+		</div>
+		
+		<div class="content">
+			<?php echo $this->render('products/index.ajax.phtml') ?>
+		</div>
+	</form>
+</div>

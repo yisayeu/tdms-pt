@@ -6,20 +6,23 @@
     	<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
     </head>
 	<body>
-    	    
-			
-		
-		<div class="container">							    		
-			<div class="navbar">
-			    <div class="navbar-inner">    
-				    <a class="brand" href="#">Products</a>
-			    </div>
-		    </div>
-			
+    	    					
+		<div class="container">
+			<div id="modal-dialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3>&nbsp;</h3>
+				</div>
+				<div class="modal-body">
+					<p>One fine body…</p>
+				</div>
+			</div>
+							
 			<?php echo $this->layout()->content; ?>
 		</div>
     	
     	<script src="/js/jquery.min.js"></script>
     	<script src="/js/bootstrap.min.js"></script>
+    	<script src="/js/tdms.js"></script>
     </body>
 </html>

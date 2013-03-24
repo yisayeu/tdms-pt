@@ -34,4 +34,25 @@ class ProductRepository extends EntityRepository
 		
 		return $product;
 	}
+	
+	/**
+	 * Removes a product by its identifier.
+	 * 
+	 * @param integer $id
+	 */
+	public function remove($id)
+	{
+		if ($product = $this->find($id)) {
+			$this->_em->remove($product);
+			$this->_em->flush();
+		}		
+	}
+	
+	/**
+	 * Removes all the products. 
+	 */
+	public function removeAll()
+	{
+		echo $this->_em->createQueryBuilder()->delete('Tdms\Entity\Product', 'p')->getQuery()->execute();
+	}
 }

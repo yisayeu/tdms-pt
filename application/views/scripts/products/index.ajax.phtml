@@ -1,0 +1,27 @@
+<?php if (!empty($this->products)) { ?>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+
+  	<?php foreach ($this->products as $product) { ?>
+  	<tr>
+      <td width="5%"><?php echo $product->getId(); ?></td>
+      <td><?php echo $product->getName(); ?></td>
+      <td width="15%"><?php echo $product->getCategory()->getName(); ?></td>
+      <td width="10%"><a class="btn btn-small" href="<?php echo $this->url(array('controller' => 'products', 'action' => 'delete', 'id' => $product->getId())); ?>"><i class="icon-trash"></i> Delete</a></td>
+    </tr>
+    <?php } ?>
+
+  </tbody>
+</table>
+<?php } else { ?>
+	<p>&nbsp;</p>
+    <div class="alert alert-info">Products list is empty</div>
+<?php } ?>

@@ -15,6 +15,8 @@ class Application_Form_ProductsCreate extends Zend_Form
 	
 	public function init()
 	{							
+		$this->setAttrib('id', 'ProductsCreate');
+		
 		$this->addElement('text', 'name', array('required' => true, 'label' => 'Name:'));
 		
 		$this->addElement('select', 'category', array(
