@@ -2,7 +2,7 @@
 	<div class="navbar-inner">	    	
 		<a class="brand" href="<?php echo $this->url(array('controller' => 'products', 'action' => 'index')); ?>">Products</a>		
 		<a class="btn" id="products-create" href="<?php echo $this->url(array('controller' => 'products', 'action' => 'create')); ?>">Add a Product</a>
-		<a class="btn" id="products-clear" href="<?php echo $this->url(array('controller' => 'products', 'action' => 'clear')); ?>">Clear The List</a>
+		<a class="btn" id="products-clear" onclick="return confirm('Are you sure you want to delete all the products?')" href="<?php echo $this->url(array('controller' => 'products', 'action' => 'clear')); ?>">Clear The List</a>
 		<img id="loading" src="/img/loading.gif" style="display:none" width="32px" height="32px">			    
 	</div>
 </div>

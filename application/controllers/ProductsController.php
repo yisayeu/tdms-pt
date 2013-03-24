@@ -39,7 +39,8 @@ class ProductsController extends Zend_Controller_Action
     	
     	$productsFilterCriteria = array();
 		
-		$form = new Application_Form_ProductsFilter($this->cr->findAll());
+    	// Not sure that it's the proper way to instantiate a form in a controller, but ZF manual shows the following.
+    	$form = new Application_Form_ProductsFilter($this->cr->findAll());
 		
 		$form->setAction($this->_helper->url('index', 'products'));
 		
@@ -64,6 +65,7 @@ class ProductsController extends Zend_Controller_Action
     {     	    	    	    	
     	$this->_helper->getHelper('AjaxContext')->addActionContext('create', 'html')->initContext('html');
     	
+    	// Not sure that it's the proper way to instantiate a form in a controller, but ZF manual shows the following.
     	$form = new Application_Form_ProductsCreate($this->cr->findAll());
     	
     	$form->setAction($this->_helper->url('create', 'products'));
