@@ -3,6 +3,7 @@
 namespace Tdms\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Tdms\Entity\Product;
 
 /**
  * ProductRepository
@@ -12,4 +13,25 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProductRepository extends EntityRepository
 {
+	/**
+	 * Creates a product using submitted form.
+	 * 
+	 * @param Zend_Form $form Form.
+	 * 
+	 * @return Product
+	 */
+	public function createFromForm(\Zend_Form $form)
+	{ 
+		$cr = $this->_em->getRepository('Tdms\Entity\Category');
+		
+		$product = new Product();
+		
+		$product->setName($form->getValue('name'));
+		$product->setCategory($cr->find($form->getValue('category')));
+		
+		$this->_em->persist($product);
+		$this->_em->flush();
+		
+		return $product;
+	}
 }
