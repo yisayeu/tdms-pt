@@ -1,8 +1,19 @@
 <?php
+/**
+ * Create product form.
+ */
 class Application_Form_ProductsCreate extends Zend_Form
 {
+	/**
+	 * @car \Tdms\Entity\Category[]
+	 */
 	protected $categories = array();
 	
+	/**
+	 * Constructor.
+	 * 
+	 * @param \Tdms\Entity\Category[] $categories Categories list.
+	 */
 	public function __construct($categories)
 	{					
 		// Convert categoreis entities collection into an array.
@@ -13,6 +24,9 @@ class Application_Form_ProductsCreate extends Zend_Form
 		parent::__construct();
 	}
 	
+	/**
+	 * Inits the form.
+	 */
 	public function init()
 	{							
 		$this->setAttrib('id', 'ProductsCreate');
