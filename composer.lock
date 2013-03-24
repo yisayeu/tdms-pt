@@ -1,5 +1,5 @@
 {
-    "hash": "3d984f6dc43aa49318bc698f81860cad",
+    "hash": "3bca40142066f032dff25ca59f9f9407",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -533,33 +533,6 @@
             "time": "2013-03-17 20:49:24"
         },
         {
-            "name": "guilhermeblanco/zendframework1-doctrine2",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guilhermeblanco/zendframework1-doctrine2.git",
-                "reference": "b58e41e94d6c0b2455969e4e8e5dd71575de51bc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guilhermeblanco/zendframework1-doctrine2/zipball/b58e41e94d6c0b2455969e4e8e5dd71575de51bc",
-                "reference": "b58e41e94d6c0b2455969e4e8e5dd71575de51bc",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/orm": "2.3.x",
-                "zendframework/zendframework1": ">=1.9,<2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Bisna": "library/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-03-11 17:42:07"
-        },
-        {
             "name": "symfony/console",
             "version": "dev-master",
             "target-dir": "Symfony/Component/Console",
@@ -659,9 +632,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "guilhermeblanco/zendframework1-doctrine2": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": [
 
     ],

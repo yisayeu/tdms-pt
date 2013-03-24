@@ -1,7 +1,7 @@
 {    
     "require": {
         "zendframework/zendframework1": "1.*",
-        "guilhermeblanco/zendframework1-doctrine2": "master-dev"
+        "doctrine/orm": "2.3.x"
     },
     
     "minimum-stability": "dev"
