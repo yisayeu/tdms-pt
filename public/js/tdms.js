@@ -14,11 +14,13 @@
 		grid: null,
 		form: null,
 		content: null,
+		loading: null,
 			
 		init: function(grid) {
 			this.grid = grid;
 			this.form = this.grid.find('form');
 			this.content = this.grid.find('div.content');
+			this.loading = $('#loading');
 			
 			this.initFilters();
 			this.initLinks();
@@ -44,6 +46,8 @@
 				url = this.form.attr('action');
 			}
 			
+			this.loading.show();
+			
 			$.ajax({
 	            type: 'POST',
 	            context: this,
@@ -51,6 +55,8 @@
 	            url: url,
 	            success: function(html) {
 	            	this.update(html);
+	            	
+	            	this.loading.hide();
 	            },
 	            error: function() {
 	            	// TODO: handle failure. 
@@ -81,6 +87,7 @@
 		dialog: null,
 		title: null,
 		content: null,
+		loading: null,
 			
 		init: function(trigger, grid) {
 			this.trigger = trigger;
@@ -88,6 +95,7 @@
 			this.dialog = $('#modal-dialog');
 			this.title = this.dialog.find('.modal-header h3');
 			this.content = this.dialog.find('.modal-body p');		
+			this.loading = $('#loading');
 			
 			this.trigger.click($.proxy(function() {
 				this.load();
@@ -98,12 +106,16 @@
 		load: function() {
 			this.title.html(this.trigger.html());
 			
+			this.loading.show();
+			
 			$.ajax({
 	            type: 'GET',
 	            context: this,
 	            url: this.trigger.attr('href'),
 	            success: function(html) {
 	            	this.update(html);
+	            	
+	            	this.loading.hide();
 	            },
 	            error: function() {
 	            	// TODO: handle failure. 
@@ -131,13 +143,17 @@
 	    	this.content.find('input[type=submit]').click($.proxy(function() {
 	    		var form  = this.content.find('form');
 			
-				$.ajax({
+				this.loading.show();
+	    		
+	    		$.ajax({
 		            type: 'POST',
 		            context: this,
 		            data: form.serializeArray(),
 		            url: this.trigger.attr('href'),
 		            success: function(html) {
 		            	this.update(html);
+		            	
+		            	this.loading.hide();
 		            },
 		            error: function() {
 		            	// TODO: handle failure. 
