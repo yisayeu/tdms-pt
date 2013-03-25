@@ -33,7 +33,7 @@ class Product
      */
     public function getId()
     {
-    	return $this->id;
+        return $this->id;
     }
     
     /**
@@ -43,7 +43,7 @@ class Product
      */
     public function getName()
     {
-    	return $this->name;
+        return $this->name;
     }
     
     /**
@@ -53,7 +53,7 @@ class Product
      */
     public function setName($name)
     {
-    	$this->name = $name;
+        $this->name = $name;
     }
     
     /**
@@ -63,7 +63,7 @@ class Product
      */
     public function getCategory()
     {
-    	return $this->category;
+        return $this->category;
     }
     
     /**
@@ -73,6 +73,6 @@ class Product
      */
     public function setCategory(Category $category)
     {
-    	$this->category = $category;
+        $this->category = $category;
     }
 }

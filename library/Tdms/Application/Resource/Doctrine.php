@@ -11,34 +11,34 @@ class Tdms_Application_Resource_Doctrine extends Zend_Application_Resource_Resou
     /**
      * @var Doctrine\ORM\EntityManager
      */
-	protected $em;
-	
-	/**
-	 * Inits resource.
-	 * 
-	 * @return Tdms_Application_Resource_Doctrine
-	 */
-	public function init()
-    {    	    
-    	$options = $this->getBootstrap()->getOption('doctrine');
-    	
-    	if (!($isDevMode = (APPLICATION_ENV == 'development'))) {
-    		$cache = new Doctrine\Common\Cache\ApcCache();
-    	}    
-    	
-    	$config = Setup::createAnnotationMetadataConfiguration(
-    		array($options['entities']), $isDevMode, $options['proxies'], isset($cache) ? $cache : null
-    	);    
-    	
-    	if (!$isDevMode) {    		
-    		$config->setMetadataCacheImpl($cache);
-    		$config->setQueryCacheImpl($cache);
-    		$config->setAutoGenerateProxyClasses(false);
-    	}
-    	    	    	    	
-    	$this->em = EntityManager::create($options['connection'], $config);
-    	
-    	return $this;
+    protected $em;
+    
+    /**
+     * Inits resource.
+     * 
+     * @return Tdms_Application_Resource_Doctrine
+     */
+    public function init()
+    {            
+        $options = $this->getBootstrap()->getOption('doctrine');
+        
+        if (!($isDevMode = (APPLICATION_ENV == 'development'))) {
+            $cache = new Doctrine\Common\Cache\ApcCache();
+        }    
+        
+        $config = Setup::createAnnotationMetadataConfiguration(
+            array($options['entities']), $isDevMode, $options['proxies'], isset($cache) ? $cache : null
+        );    
+        
+        if (!$isDevMode) {            
+            $config->setMetadataCacheImpl($cache);
+            $config->setQueryCacheImpl($cache);
+            $config->setAutoGenerateProxyClasses(false);
+        }
+                                
+        $this->em = EntityManager::create($options['connection'], $config);
+        
+        return $this;
     }
     
     /**
@@ -48,7 +48,7 @@ class Tdms_Application_Resource_Doctrine extends Zend_Application_Resource_Resou
      */
     public function getEntityManager()
     {
-    	return $this->em;
+        return $this->em;
     }
     
     /**
@@ -59,6 +59,6 @@ class Tdms_Application_Resource_Doctrine extends Zend_Application_Resource_Resou
      */
     public function getRepository($entityName)
     {
-    	return $this->getEntityManager()->getRepository($entityName);
+        return $this->getEntityManager()->getRepository($entityName);
     }
 }

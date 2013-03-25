@@ -13,46 +13,46 @@ use Tdms\Entity\Product;
  */
 class ProductRepository extends EntityRepository
 {
-	/**
-	 * Creates a product using submitted form.
-	 * 
-	 * @param Zend_Form $form Form.
-	 * 
-	 * @return Product
-	 */
-	public function createFromForm(\Zend_Form $form)
-	{ 
-		$cr = $this->_em->getRepository('Tdms\Entity\Category');
-		
-		$product = new Product();
-		
-		$product->setName($form->getValue('name'));
-		$product->setCategory($cr->find($form->getValue('category')));
-		
-		$this->_em->persist($product);
-		$this->_em->flush();
-		
-		return $product;
-	}
-	
-	/**
-	 * Removes a product by its identifier.
-	 * 
-	 * @param integer $id
-	 */
-	public function remove($id)
-	{
-		if ($product = $this->find($id)) {
-			$this->_em->remove($product);
-			$this->_em->flush();
-		}		
-	}
-	
-	/**
-	 * Removes all the products. 
-	 */
-	public function removeAll()
-	{
-		echo $this->_em->createQueryBuilder()->delete('Tdms\Entity\Product', 'p')->getQuery()->execute();
-	}
+    /**
+     * Creates a product using submitted form.
+     * 
+     * @param Zend_Form $form Form.
+     * 
+     * @return Product
+     */
+    public function createFromForm(\Zend_Form $form)
+    { 
+        $cr = $this->_em->getRepository('Tdms\Entity\Category');
+        
+        $product = new Product();
+        
+        $product->setName($form->getValue('name'));
+        $product->setCategory($cr->find($form->getValue('category')));
+        
+        $this->_em->persist($product);
+        $this->_em->flush();
+        
+        return $product;
+    }
+    
+    /**
+     * Removes a product by its identifier.
+     * 
+     * @param integer $id
+     */
+    public function remove($id)
+    {
+        if ($product = $this->find($id)) {
+            $this->_em->remove($product);
+            $this->_em->flush();
+        }        
+    }
+    
+    /**
+     * Removes all the products. 
+     */
+    public function removeAll()
+    {
+        echo $this->_em->createQueryBuilder()->delete('Tdms\Entity\Product', 'p')->getQuery()->execute();
+    }
 }

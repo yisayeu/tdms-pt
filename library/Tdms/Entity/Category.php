@@ -26,7 +26,7 @@ class Category
      */
     public function getId()
     {
-    	return $this->id;
+        return $this->id;
     }
     
     /**
@@ -36,7 +36,7 @@ class Category
      */
     public function getName()
     {
-    	return $this->name;
+        return $this->name;
     }
     
     /**
@@ -46,6 +46,6 @@ class Category
      */
     public function setName($name)
     {
-    	$this->name = $name;
+        $this->name = $name;
     }
 }

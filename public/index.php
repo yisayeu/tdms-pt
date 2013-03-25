@@ -1,19 +1,19 @@
 <?php
 /* function d()
 {
-	foreach (func_get_args() as $arg) {
-		if ($arg instanceof \Doctrine\ORM\QueryBuilder) {
-			$arg = $arg->getDQL();
+    foreach (func_get_args() as $arg) {
+        if ($arg instanceof \Doctrine\ORM\QueryBuilder) {
+            $arg = $arg->getDQL();
 
-			foreach (array('SELECT', 'FROM', 'LEFT JOIN', 'WHERE') as $sqlPart) {
-				$arg = str_replace($sqlPart, PHP_EOL . $sqlPart . PHP_EOL, $arg);
-			}
-		}
+            foreach (array('SELECT', 'FROM', 'LEFT JOIN', 'WHERE') as $sqlPart) {
+                $arg = str_replace($sqlPart, PHP_EOL . $sqlPart . PHP_EOL, $arg);
+            }
+        }
 
-		echo '<pre>';
-		print_r($arg);
-		echo '</pre>';
-	}
+        echo '<pre>';
+        print_r($arg);
+        echo '</pre>';
+    }
 } */
 
 
