@@ -4,3 +4,4 @@
 vendor
 access.log
 error.log
+application/cache/*.php

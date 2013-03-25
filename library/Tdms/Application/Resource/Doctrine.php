@@ -21,11 +21,22 @@ class Tdms_Application_Resource_Doctrine extends Zend_Application_Resource_Resou
 	public function init()
     {    	    
     	$options = $this->getBootstrap()->getOption('doctrine');
+    	
+    	if (!($isDevMode = (APPLICATION_ENV == 'development'))) {
+    		$cache = new Doctrine\Common\Cache\ApcCache();
+    	}    
+    	
+    	$config = Setup::createAnnotationMetadataConfiguration(
+    		array($options['entities']), $isDevMode, $options['proxies'], isset($cache) ? $cache : null
+    	);    
+    	
+    	if (!$isDevMode) {    		
+    		$config->setMetadataCacheImpl($cache);
+    		$config->setQueryCacheImpl($cache);
+    		$config->setAutoGenerateProxyClasses(false);
+    	}
     	    	    	    	
-    	$this->em = EntityManager::create(
-    		$options['connection'],
-    		Setup::createAnnotationMetadataConfiguration(array($options['entities']), true)
-    	);
+    	$this->em = EntityManager::create($options['connection'], $config);
     	
     	return $this;
     }
