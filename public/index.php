@@ -16,7 +16,8 @@
 	}
 } */
 
-$ts = microtime(true);
+
+//$ts = microtime(true);
 
 // Define path to application directory
 defined('APPLICATION_PATH')
@@ -43,4 +44,4 @@ $application = new Zend_Application(
 
 $application->bootstrap()->run();
 
-echo '<!--' . round(microtime(true) - $ts, 3) . '-->';
+//echo '<!--' . round(microtime(true) - $ts, 3) . '-->';
