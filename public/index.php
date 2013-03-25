@@ -1,5 +1,5 @@
 <?php
-function d()
+/* function d()
 {
 	foreach (func_get_args() as $arg) {
 		if ($arg instanceof \Doctrine\ORM\QueryBuilder) {
@@ -14,7 +14,9 @@ function d()
 		print_r($arg);
 		echo '</pre>';
 	}
-}
+} */
+
+$ts = microtime(true);
 
 // Define path to application directory
 defined('APPLICATION_PATH')
@@ -26,8 +28,7 @@ defined('APPLICATION_ENV')
 
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
-    realpath(APPLICATION_PATH . '/../library'),
-    get_include_path(),
+    realpath(APPLICATION_PATH . '/../library'), get_include_path(),
 )));
 
 require_once '../vendor/autoload.php';
@@ -37,8 +38,9 @@ require_once 'Zend/Application.php';
 
 // Create application, bootstrap, and run
 $application = new Zend_Application(
-    APPLICATION_ENV,
-    APPLICATION_PATH . '/configs/application.ini'
+    APPLICATION_ENV, APPLICATION_PATH . '/configs/application.ini'
 );
-$application->bootstrap()
-            ->run();
+
+$application->bootstrap()->run();
+
+echo '<!--' . round(microtime(true) - $ts, 3) . '-->';
